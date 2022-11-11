@@ -1,0 +1,31 @@
+@import "../styles/tp-community-palette.scss";
+@import "../styles/tp-community-buttons.scss";
+@import "../styles/tp-community-theme.scss";
+
+
+mat-sidenav {
+  box-shadow: 0 10px 20px 5px #00000030;
+  background-color: #94182a !important;
+}
+
+.my-notify {
+  position: fixed;
+  top: 20px;
+  right: 10px;
+  z-index: 500;
+  width: max-content;
+  height: max-content;
+  border-radius: 50%;
+  background-color: white;
+}
+
+
+::ng-deep .mat-badge-content {
+  color: white
+}
+
+
+mat-sidenav-content {
+  box-shadow: 0 10px 20px 5px #00000030;
+  background-color: #00000021;
+}

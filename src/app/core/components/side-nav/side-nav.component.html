@@ -1,0 +1,101 @@
+<div class="main-sidenav">
+  <ul class="nav-top">
+   <!-- <li>
+      <a routerLink="/" routerLinkActive="active">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="home icon"
+          matTooltip="Home"
+          [matTooltipPosition]="menuTooltipPosition">home
+        </mat-icon>
+      </a>
+    </li>-->
+    <li>
+      <a [routerLink]="'/side-chat-component'" routerLinkActive="active" #rla="routerLinkActive" (click)="open('side-chat')">
+        <mat-icon
+          aria-label="chat icon"
+          matTooltip="Chat"
+          ngClass="{{rla.isActive ? 'active' : ''}}"
+          [matTooltipPosition]="menuTooltipPosition">chat
+        </mat-icon>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/side-file-component" routerLinkActive="active" #rlas="routerLinkActive" (click)="open('side-file')">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="user file"
+          matTooltip="File"
+          ngClass="{{rlas.isActive ? 'active' : ''}}"
+          [matTooltipPosition]="menuTooltipPosition">insert_drive_file
+        </mat-icon>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/side-course-component" routerLinkActive="active" #rlacourse="routerLinkActive" (click)="open('side-course')">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="courses"
+          matTooltip="Corsi"
+          ngClass="{{rlacourse.isActive ? 'active' : ''}}"
+          [matTooltipPosition]="menuTooltipPosition">school
+        </mat-icon>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/side-notify-event-component" routerLinkActive="active" #rlanotify="routerLinkActive">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="news board"
+          matTooltip="Notifiche Eventi"
+          ngClass="{{rlanotify.isActive ? 'active' : ''}}"
+          [matTooltipPosition]="menuTooltipPosition">notifications_active
+        </mat-icon>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/side-news-board-component" routerLinkActive="active" #rlanews="routerLinkActive">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="news board"
+          matTooltip="Bacheca Notizie"
+          ngClass="{{rlanews.isActive ? 'active' : ''}}"
+          [matTooltipPosition]="menuTooltipPosition">chrome_reader_mode
+        </mat-icon>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/side-competence-area-component" routerLinkActive="active" #rlacompetence="routerLinkActive" (click)="open('side-competence')">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="competencearea"
+          matTooltip="Aree di Competenza"
+          ngClass="{{rlacompetence.isActive ? 'active' : ''}}"
+          [matTooltipPosition]="menuTooltipPosition">work
+        </mat-icon>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/side-faq-component" routerLinkActive="active" #rlafaq="routerLinkActive" (click)="open('side-faq')">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="faq"
+          matTooltip="Guide / FAQ"
+          ngClass="{{rlafaq.isActive ? 'active' : ''}}"
+          [matTooltipPosition]="menuTooltipPosition">question_answer
+        </mat-icon>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/side-job-system-component" routerLinkActive="active" #rlajs="routerLinkActive" (click)="open('side-job-system')">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="job"
+          matTooltip="Job System"
+          ngClass="{{rlajs.isActive ? 'active' : ''}}"
+          [matTooltipPosition]="menuTooltipPosition">linear_scale
+        </mat-icon>
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,68 @@
+<div class="header">
+  <mat-card-title>
+    Corsi
+  </mat-card-title>
+</div>
+<mat-divider></mat-divider>
+<div class="course-body">
+  <div>
+    <div fxLayout="row" fxLayoutAlign="bottom" fxLayoutGap="20px">
+      <mat-form-field>
+        <mat-label>Nome corso</mat-label>
+        <mat-select (selectionChange)="doTypeFilter($event)">
+          <mat-divider></mat-divider>
+          <mat-option
+            *ngFor="let _name of names"
+            [value]="_name"
+          >
+            {{_name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Tipo</mat-label>
+        <mat-select (selectionChange)="doTypeFilter($event)">
+          <mat-divider></mat-divider>
+          <mat-option
+            *ngFor="let _type of types"
+            [value]="_type"
+          >
+            {{_type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+    <div class="content">
+      <div class="list">
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource">
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Nome</th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="type">
+              <th mat-header-cell *matHeaderCellDef> Tipo</th>
+              <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                         [pageSize]="10"
+                         showFirstLastButtons
+                         aria-labelledby="pagina"
+          >
+          </mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

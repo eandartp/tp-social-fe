@@ -1,0 +1,25 @@
+<div fxFlex="100">
+  <div fxFlex.gt-lg="20"
+       fxFlex.lg="20"
+       fxFlex.xs="100" class="side-container" ngClass="{{selectedCategory ? 'mobile-hidden' : ''}}">
+    <div class="header">
+      <div class="text" fxFlex>
+        Guide / FAQ
+      </div>
+    </div>
+    <mat-list>
+      <mat-list-item *ngFor="let _menu of faqCategories; last as last"
+                     ngClass="{{selectedCategory === _menu ? 'active' : ''}}"
+                     (click)="selectedCategory = _menu">
+        <h4 mat-line>{{_menu.name}}</h4>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+  <div fxFlex="100"
+       [fxFlex.xs]="selectedCategory ? 100 : 0"
+       fxFlex.lg="80"
+       fxFlex.gt-lg="80" class="side-content">
+    <app-faq *ngIf="selectedCategory" [selectedCategory]="selectedCategory"></app-faq>
+  </div>
+</div>

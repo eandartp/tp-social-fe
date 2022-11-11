@@ -1,0 +1,46 @@
+<div>
+  <div class="side-container" fxLayout="column"><!--ngClass="{{selectedUser ? 'mobile-hidden' : ''}}"-->
+    <div class="header" fxLayout="row" fxLayoutAlign="space-between end">
+      <div class="text">
+        Notifiche Eventi
+      </div>
+      <mat-form-field color="tp-primary">
+        <mat-label>Inserisci data inizio e fine</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Inizio" [(ngModel)]="startDate">
+          <input matEndDate placeholder="Fine" [(ngModel)]="endDate" (dateChange)="filter('end', $event)">
+        </mat-date-range-input>
+        <!--        <mat-hint>dd/MM/yyyy – dd/MM/yyyy</mat-hint>-->
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </div>
+
+    <mat-accordion>
+      <mat-expansion-panel
+        *ngFor="let _notify of filterService.filterListDateRange(notifications,'date',startDate,endDate), let i = index"
+        [expanded]="step === i"
+        (opened)="setStep(i)" hideToggle>
+        <mat-expansion-panel-header fxLayout="row" fxLayoutAlign="space-between">
+          <mat-panel-title>
+            {{_notify.from}}
+          </mat-panel-title>
+          <mat-panel-description fxLayoutAlign="end" fxFlexAlign="center">
+            {{_notify.date}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>{{_notify.msg}}</p>
+        <!--   <mat-action-row>
+             <button mat-button color="primary" (click)="nextStep()">Next</button>
+           </mat-action-row>-->
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+  </div>
+
+
+  <!--  <div fxFlex="80" class="side-content">
+      <app-notify-event></app-notify-event>
+    </div>-->
+</div>

@@ -1,0 +1,54 @@
+<div fxFlex="100">
+  <div fxFlex.gt-lg="20"
+       fxFlex.lg="20"
+       fxFlex.xs="100" class="side-container"
+       ngClass="{{loginSuccess && (hideSide || !isMobile) ? 'mobile-hidden' : ''}}">
+    <div class="header">
+      <div class="text" fxFlex>
+        Corsi
+      </div>
+    </div>
+    <section *ngIf="!loginSuccess">
+      <div fxLayoutAlign="space-around center">
+        <button mat-flat-button color="tp-primary" (click)="showLoginForm = !showLoginForm">Login</button>
+        <a mat-flat-button color="tp-primary"
+           href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&rver=7.3.6963.0&wp=MBI_SSL&wreply=https%3a%2f%2fwww.microsoft.com%2fit-it%2fsecurity%2fmobile-authenticator-app&lc=1040&id=74335&aadredir=1"
+           target="_blank">Registrati</a>
+      </div>
+    </section>
+    <section *ngIf="loginSuccess">
+      <div fxLayoutAlign="space-around center">
+        <button mat-flat-button color="tp-primary" (click)="logout()">Log-out</button>
+      </div>
+    </section>
+
+    <form fxLayout="column" fxLayoutAlign="space-evenly center" [formGroup]="loginForm" (ngSubmit)="login()"
+          *ngIf="showLoginForm && !loginSuccess">
+      <mat-form-field appearance="fill" color="tp-primary">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" formControlName="user">
+        <button mat-icon-button matSuffix type="button" tabindex="-1">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field appearance="fill" color="tp-primary">
+        <mat-label>password</mat-label>
+        <input matInput [type]="hidePwd ? 'password' : 'text'" formControlName="password">
+        <button type="button" mat-icon-button matSuffix (click)="hidePwd = !hidePwd" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hidePwd">
+          <mat-icon>{{hidePwd ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <section>
+        <button mat-flat-button color="tp-primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+      </section>
+    </form>
+  </div>
+
+  <div fxFlex="100"
+       [fxFlex.xs]="loginSuccess && hideSide ? 100 : 0"
+       fxFlex.lg="80"
+       fxFlex.gt-lg="80" class="side-content">
+    <app-course *ngIf="loginSuccess"></app-course>
+  </div>
+</div>

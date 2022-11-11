@@ -1,0 +1,94 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+@import "src/styles/tp-community-palette";
+
+.mat-form-field {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  width: 75vw;
+  mat-icon {
+    cursor: pointer;
+  }
+}
+
+.mat-menu-content {
+  margin: 0 13px;
+
+  .contact-circle {
+    margin-bottom: 1px;
+  }
+}
+
+.header {
+  font-size: 1.4em;
+  margin: 3vh 0;
+
+  .contact-circle {
+    margin-bottom: 2vh;
+    cursor: pointer;
+  }
+
+  .group {
+    mat-icon {
+      vertical-align: text-bottom;
+      cursor: pointer;
+    }
+  }
+}
+
+.msgs-container {
+  overflow: auto;
+  max-height: 70vh;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+
+  .cards-msg {
+    mat-card {
+      background-color: mat.get-contrast-color-from-palette($tpcommunity-primary-palette, 600);
+      color: map-get($tpcommunity-primary-palette, 50);
+      width: fit-content;
+      margin-bottom: 2px;
+      padding: 0.8em;
+
+      p {
+        margin-bottom: 0;
+        font-weight: bold;
+        font-size: 0.9em;
+        letter-spacing: 1px;
+      }
+
+      mat-card-header, mat-card-subtitle {
+        margin: 0;
+      }
+
+      &.me-card {
+        margin-left: auto;
+        margin-right: 1vw;
+        background-color: map-get($tpcommunity-primary-palette, 500);
+        color: map-get($tpcommunity-primary-palette, 50);
+        display: block;
+
+        p {
+          text-align: right;
+        }
+
+        mat-card-subtitle {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+app-modal {
+  width: 40vw;
+}
+.msgs-container::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}

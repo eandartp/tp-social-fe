@@ -1,0 +1,25 @@
+<div fxFlex="100">
+  <div class="side-container" fxFlex.gt-lg="20"
+       fxFlex.lg="20"
+       fxFlex.xs="100" ngClass="{{selectedCategory ? 'mobile-hidden' :''}}" >
+    <div class="header">
+      <div class="text" fxFlex>
+        File
+      </div>
+    </div>
+    <mat-list>
+      <mat-list-item *ngFor="let _menu of fileCategories; last as last"
+                     ngClass="{{selectedCategory === _menu ? 'active' : ''}}"
+                     (click)="selectedCategory = _menu">
+        <h4 mat-line>{{_menu.name}}</h4>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+  <div class="side-content" fxFlex="100"
+       [fxFlex.xs]="selectedCategory ? 100 : 0"
+       fxFlex.lg="80"
+       fxFlex.gt-lg="80">
+    <app-file-list *ngIf="selectedCategory" [selectedCategory]="selectedCategory"></app-file-list>
+  </div>
+</div>

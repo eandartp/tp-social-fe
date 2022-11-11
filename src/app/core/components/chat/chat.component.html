@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="header">
+    <div *ngIf="!isGroup" fxFlex>
+      <div
+        class="contact-circle">{{mapKeyPartecipants.value[0].surname.substring(0, 1) + '' + mapKeyPartecipants.value[0].name.substring(0, 1)}}</div>
+      {{mapKeyPartecipants.value[0].surname}} {{mapKeyPartecipants.value[0].name}}
+      <mat-divider></mat-divider>
+    </div>
+
+    <div class="group" *ngIf="isGroup" fxFlex fxLayoutGap="20px" fxFlexAlign="center">
+      {{mapKeyPartecipants.key}}
+      <div [matMenuTriggerFor]="usersInToGroup" class="contact-circle">{{mapKeyPartecipants.value.length}}</div>
+      <mat-menu #usersInToGroup="matMenu">
+        <div *ngIf="mapKeyPartecipants && mapKeyPartecipants.key && mapKeyPartecipants.value" class="mat-menu-content" fxLayout="column">
+          <div *ngFor="let _user of mapKeyPartecipants.value">
+            <div class="contact-circle">{{_user.surname.substring(0, 1) + '' + _user.name.substring(0, 1)}}</div>
+            {{_user.name + ' ' + _user.surname}}
+          </div>
+        </div>
+      </mat-menu>
+      <mat-icon (click)="openModal('add-users')" matTooltip="Aggiungi utenze">group_add</mat-icon>
+      <mat-divider></mat-divider>
+    </div>
+
+  </div>
+  <div #scrollMe class="msgs-container">
+    <div *ngFor="let msg of messages" class="cards-msg">
+      <mat-card [ngClass]="msg.from === 'me' ? 'me-card' : ''">
+        <p [ngStyle]="{'color' : usersColorMap.get(msg.id)}">{{msg.from === 'me' ? '' : msg.from}}</p>
+        <mat-card-content>
+          {{msg.text}}
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div class="bottom">
+    <mat-form-field appearance="fill">
+      <mat-label>Scrivi un nuovo messaggio</mat-label>
+      <textarea matInput
+                [(ngModel)]="msg"
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="5"></textarea>
+      <mat-icon matSuffix (click)="sendMsg()">send</mat-icon>
+    </mat-form-field>
+  </div>
+</div>

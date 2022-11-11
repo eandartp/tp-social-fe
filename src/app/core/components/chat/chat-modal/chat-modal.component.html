@@ -1,0 +1,111 @@
+<h1>{{data.type === 'new_chat' ? 'Nuova chat' : (data.type === 'add-users' ? 'Aggiungi Utenze' : 'Nuovo Gruppo')}}</h1>
+<form [formGroup]="newChatForm" (ngSubmit)="addUserToChat(formDirective)" #formDirective="ngForm" fxLayout="row"
+      fxLayout.lt-md="column"
+      fxLayoutAlign="space-between center" fxLayoutGap="20px">
+  <mat-form-field *ngIf="data.type === 'new_chat'">
+    <mat-select
+      formControlName="users"
+      placeholder="Utenti"
+      required>
+      <input
+        [(ngModel)]="listFilterUsers.name"
+        [ngModelOptions]="{standalone: true}"
+        matInput
+        placeholder="Digita nome"
+        style="padding: 1rem; max-width: fit-content;"
+        type="text"/>
+      <mat-divider></mat-divider>
+      <mat-option style="display: block;"
+                  *ngFor="
+                let _user of filterService.filterListIncludes(
+                  listFilterUsers.name,
+                  data.usersArray,
+                  'name',
+                  'surname'
+                )
+              "
+                  [value]="_user"
+                  ngDefaultControl
+      >
+        {{_user.surname + " " + _user.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="data.type === 'new_group'">
+    <mat-label>Nome Gruppo</mat-label>
+    <input
+      formControlName="nominative"
+      required
+      type="text"
+      id="groupName"
+      matInput
+      placeholder="Inserisci il nome del gruppo"
+    />
+  </mat-form-field>
+  <mat-form-field fxLayoutGap="20px" *ngIf="data.type === 'new_group'">
+    <mat-select style="display: block;"
+                formControlName="users"
+                placeholder="Utenti"
+                multiple
+                required
+    >
+      <input
+        [(ngModel)]="listFilterUsers.name"
+        [ngModelOptions]="{standalone: true}"
+        matInput
+        placeholder="Digita nome"
+        style="padding: 1rem; max-width: fit-content;"
+        type="text"
+      />
+      <mat-divider></mat-divider>
+      <mat-option
+        *ngFor="
+                let _user of filterService.filterListIncludes(
+                  listFilterUsers.name,
+                  data.usersArray,
+                  'name',
+                  'surname'
+                )
+              "
+        [value]="_user"
+        ngDefaultControl
+      >
+        {{_user.surname + " " + _user.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="data.type === 'add-users'">
+    <mat-select
+      formControlName="users"
+      placeholder="Utenti"
+      multiple
+      required>
+      <input
+        [(ngModel)]="listFilterUsers.name"
+        [ngModelOptions]="{standalone: true}"
+        matInput
+        placeholder="Digita nome"
+        style="padding: 1rem; max-width: fit-content;"
+        type="text"
+      />
+      <mat-divider></mat-divider>
+      <mat-option
+        *ngFor="let _user of filterService.filterListIncludes(
+                  listFilterUsers.name,
+                  data.usersArray,
+                  'name',
+                  'surname')"
+        [value]="_user"
+        ngDefaultControl
+      >
+        {{_user.surname + " " + _user.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-card-actions>
+    <button mat-raised-button type="submit" [mat-dialog-close]="data" [disabled]="!newChatForm.valid">Aggiungi</button>
+  </mat-card-actions>
+</form>

@@ -1,0 +1,68 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+@import "src/styles/tp-community-palette";
+.side-container {
+  /* width: 20vw;*/
+  height: 100vh;
+  padding: 0 2px;
+  max-height: 100vh;
+  overflow: auto;
+  box-shadow: 0 10px 20px 5px #000000e0;
+  background: linear-gradient(map-get($tpcommunity-primary-palette, 500), map-get($tpcommunity-primary-palette, 900));
+  color: map-get($tpcommunity-primary-palette, A100);
+
+  .header {
+    .text {
+      font-size: 2em;
+      margin: 3vh 2vw;
+    }
+    mat-form-field {
+      margin-right: 60px;
+    }
+  }
+
+  mat-list-item {
+    cursor: pointer;
+    color: map-get($tpcommunity-primary-palette, A100);
+
+    &:hover {
+      border-radius: 6px;
+      width: inherit;
+      background: map-get($tpcommunity-primary-palette, 200);
+    }
+  }
+
+  .active {
+    border-radius: 6px;
+    width: inherit;
+    background: map-get($tpcommunity-primary-palette, 200);
+  }
+
+}
+
+.side-content {
+  max-height: 100vh;
+  overflow: hidden;
+  margin: 0 15px 0 15px;
+  background-image: url('http://www.tacticalpeople.it/wp-content/themes/tactical_people_theme/img/logo-tactical-people.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .side-container {
+    width: 100%;
+  }
+  .mobile-hidden {
+    display: none;
+  }
+  .fxFlex100 {
+    width: 100%;
+  }
+
+}

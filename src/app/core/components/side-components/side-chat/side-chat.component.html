@@ -1,0 +1,34 @@
+<div fxFlex="100">
+  <div fxFlex.gt-lg="20"
+       fxFlex.lg="20"
+       fxFlex.xs="100"
+       class="side-container" ngClass="{{selectedUser ? 'mobile-hidden' : ''}}">
+    <div class="header">
+      <div class="text" fxFlex>
+        Chat
+      </div>
+      <div class="action">
+        <mat-icon (click)="openModal('new_chat')" matTooltip="Nuova chat">person_add</mat-icon>
+        <mat-icon (click)="openModal('new_group')" matTooltip="Nuovo gruppo">group_add</mat-icon>
+      </div>
+    </div>
+    <mat-list>
+      <mat-list-item *ngFor="let _map of chats | keyvalue: asIsOrder" (click)="selectedUser = _map"
+                     ngClass="{{selectedUser?.key === _map.key ? 'active' : ''}}">
+        <div class="contact-circle"
+             *ngIf="_map.value.length === 1">{{_map.value[0].surname.substring(0, 1)}}{{_map.value[0].name.substring(0, 1)}}</div>
+        <div class="contact-circle" *ngIf="_map.value.length > 1">{{_map.value.length}}</div>
+        <h4 mat-line>{{_map.value.length === 1 ? _map.value[0].surname : _map.key}}</h4>
+        <p mat-line class="" *ngIf="_map.value.length === 1"> {{_map.value[0].name}} </p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+  <div class="side-content"
+       fxFlex="100"
+       [fxFlex.xs]="selectedUser ? 100 : 0"
+       fxFlex.lg="80"
+       fxFlex.gt-lg="80">
+    <app-chat *ngIf="selectedUser" [mapKeyPartecipants]="selectedUser" [employees]="usersArray"></app-chat>
+  </div>
+</div>

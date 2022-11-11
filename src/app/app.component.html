@@ -1,0 +1,34 @@
+<!--
+<mat-sidenav-container fxFlex="100" style="height: 100vh">
+  <mat-sidenav mode="side" opened [disableClose]="true">
+    <app-side-nav></app-side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+-->
+<div class="main-container">
+  <router-outlet></router-outlet>
+</div>
+
+<div class="my-notify">
+  <button mat-icon-button  [matMenuTriggerFor]="menu">
+    <mat-icon matBadge="3" matBadgePosition="after">notifications_none</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>cake</mat-icon>
+      <span>Compleanno tactical</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>fiber_new</mat-icon>
+      <span>Nuova versione</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>hearing</mat-icon>
+      <span>We're hearing</span>
+    </button>
+  </mat-menu>
+</div>
+

@@ -1,0 +1,115 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  // Get the color config from the theme.
+  $color-config: mat.get-color-config($theme);
+
+  // Get the primary color palette from the color-config.
+  $primary-palette: map.get($color-config, 'primary');
+
+  .mat-primary {
+    &.mat-raised-button {
+      min-width: 88px;
+      background: mat.get-color-from-palette($primary-palette, A100);
+      color: #FFF;
+    }
+  }
+
+  .mat-tp-primary {
+    &.mat-flat-button {
+      color: mat.get-color-from-palette($primary-palette, 500);
+      background-color:  mat.get-color-from-palette($primary-palette, 50);
+      border: 1px solid mat.get-color-from-palette($primary-palette, 50);
+
+      &:hover {
+        box-shadow: 2px 10px 15px rgba(255, 255, 255, 0.4);
+        transform: scale(1.04);
+        transition: all 0.15s ease-out;
+      }
+      &:disabled {
+        color: mat.get-color-from-palette($primary-palette, 500);
+        background-color: rgba(255,255,255,0.45);
+        border: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .mat-button-base {
+    &.mat-raised-button {
+      min-width: 88px;
+    }
+  }
+
+  ::ng-deep .mat-form-field.mat-tp-primary {
+    .mat-input-element {
+      color: mat.get-color-from-palette($primary-palette, 50);
+    }
+
+    .mat-form-field-label {
+      color: mat.get-color-from-palette($primary-palette, 50);
+    }
+
+    .mat-form-field-underline {
+      background-color: mat.get-color-from-palette($primary-palette, 50);
+    }
+
+    .mat-form-field-ripple {
+      background-color: mat.get-color-from-palette($primary-palette, 50);
+    }
+
+    .mat-form-field-required-marker {
+      color: mat.get-color-from-palette($primary-palette, 50);
+    }
+
+    mat-datepicker-toggle {
+      color: mat.get-color-from-palette($primary-palette, 50);
+    }
+
+  }
+
+/*focused*/
+  ::ng-deep .mat-form-field.mat-tp-primary.mat-focused {
+    .mat-form-field-label {
+      color: mat.get-color-from-palette($primary-palette, 50);
+    }
+    .mat-form-field-ripple {
+      background-color: rgba(255, 255, 255, 1);
+    }
+    .mat-form-field-required-marker {
+      color: mat.get-color-from-palette($primary-palette, 50);
+    }
+    .mat-input-element {
+      color: mat.get-color-from-palette($primary-palette, 50);
+    }
+  }
+/*invalid*/
+  ::ng-deep .mat-form-field.mat-tp-primary.mat-form-field-invalid {
+    .mat-input-element {
+      color:  mat.get-color-from-palette($primary-palette, A700);
+    }
+    .mat-form-field-label {
+      color: mat.get-color-from-palette($primary-palette, A700);
+      .mat-form-field-required-marker {
+        color: mat.get-color-from-palette($primary-palette, A700);
+      }
+    }
+    .mat-form-field-ripple {
+      background-color: mat.get-color-from-palette($primary-palette, A700);
+    }
+  }
+
+}
+
+@mixin theme($theme) {
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+
+  $typography-config: mat.get-typography-config($theme);
+  @if $typography-config != null {
+    @include typography($theme);
+  }
+}
