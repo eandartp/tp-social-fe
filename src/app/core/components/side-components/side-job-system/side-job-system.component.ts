@@ -20,7 +20,7 @@ export class SideJobSystemComponent implements OnInit {
     })
     this.categories = [
       {
-        name: 'Job System'
+        name: 'Dipendenti'
       }
     ]
   }

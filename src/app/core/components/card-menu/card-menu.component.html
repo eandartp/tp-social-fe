@@ -164,31 +164,8 @@
         </mat-card>
     </div>
     <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="25%">
-        <mat-card  class="section-card" routerLinkActive="active" #rlajs="routerLinkActive">
+        <mat-card class="section-card" routerLinkActive="active" #rlajs="routerLinkActive">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image">
-                <a routerLink="/side-job-system-component" >
-                    <mat-icon
-                      aria-hidden="false"
-                      aria-label="job"
-                      ngClass="{{rlajs.isActive ? 'active' : ''}}">linear_scale
-                    </mat-icon>
-                  </a>
-              </div>
-              <mat-card-title>Job system</mat-card-title>
-              <mat-card-subtitle>Oppotunità lavorative</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="{{hiringImgPath}}" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-              </p>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="25%">
-      <mat-card class="section-card" routerLinkActive="active" #rlajs="routerLinkActive">
-          <mat-card-header>
             <div mat-card-avatar class="example-header-image">
               <a routerLink="/side-job-system-component" >
                   <mat-icon
@@ -200,8 +177,31 @@
             </div>
             <mat-card-title>GDPR</mat-card-title>
             <mat-card-subtitle>Info sulla privacy</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{privacyImgPath}}">
+            <mat-card-content>
+              <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+              </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="25%">
+      <mat-card  class="section-card" routerLinkActive="active" #rlajs="routerLinkActive" routerLink="/side-job-system-component">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image">
+              <a >
+                  <mat-icon
+                    aria-hidden="false"
+                    aria-label="job"
+                    ngClass="{{rlajs.isActive ? 'active' : ''}}">linear_scale
+                  </mat-icon>
+                </a>
+            </div>
+            <mat-card-title>Amministrazione</mat-card-title>
+            <mat-card-subtitle>Backoffice</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image src="{{privacyImgPath}}">
+          <img mat-card-image src="{{administrationImgPath}}" alt="Photo of a Shiba Inu">
           <mat-card-content>
             <p>
               The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.

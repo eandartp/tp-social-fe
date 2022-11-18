@@ -13,7 +13,7 @@ export class CardMenuComponent implements OnInit {
   newspapersImgPath = 'assets/img/newspapers.jpg';
   skillsImgPath = 'assets/img/skills.jpg';
   notificationImgPath = 'assets/img/notification_dark.jpg';
-  hiringImgPath = 'assets/img/hiring.jpg';
+  administrationImgPath = 'assets/img/administration.jpg';
   meetingImgPath = 'assets/img/info.jpg';
   privacyImgPath = 'assets/img/privacy.jpg';
   tacticalImgPath = 'assets/img/logo-tactical-people.png';
