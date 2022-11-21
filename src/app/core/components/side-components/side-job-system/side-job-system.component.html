@@ -20,6 +20,6 @@
        [fxFlex.xs]="selectedCategory ? 100 : 0"
        fxFlex.lg="80"
        fxFlex.gt-lg="80" class="side-content">
-    <app-job-system *ngIf="selectedCategory" [selectedCategory]="selectedCategory"></app-job-system>
+    <employee *ngIf="selectedCategory" [selectedCategory]="selectedCategory"></employee>
   </div>
 </div>

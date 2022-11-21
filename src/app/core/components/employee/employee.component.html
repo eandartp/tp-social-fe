@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="header">
+    {{selectedCategory.name}}
+  </div>
+  <div class="content">
+    <div class="list">
+      <div class="tp-rt-btn-container">
+        <button type="button" mat-raised-button color="tp-primary" (click)="addEmployee()" [attr.aria-label]="'Add employee'">
+          <span>Aggiungi dipendente</span>
+        </button>
+      </div>
+      <br/>
+      <div class="mat-elevation-z8">
+        
+        <table mat-table [dataSource]="dataSource">
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Id</th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+          <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef> Nome</th>
+            <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef> Cognome</th>
+            <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> Indirizzo</th>
+            <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+          </ng-container>
+          <ng-container matColumnDef="taxCode">
+            <th mat-header-cell *matHeaderCellDef> Codice Fiscale</th>
+            <td mat-cell *matCellDef="let element"> {{element.taxCode}} </td>
+          </ng-container>
+          <ng-container matColumnDef="zip">
+            <th mat-header-cell *matHeaderCellDef> Codice postale</th>
+            <td mat-cell *matCellDef="let element"> {{element.zip}} </td>
+          </ng-container>
+          <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef> Città</th>
+            <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                       [pageSize]="10"
+                       showFirstLastButtons
+                       aria-labelledby="pagina">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+

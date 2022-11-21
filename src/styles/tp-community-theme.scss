@@ -1,5 +1,6 @@
 @use '@angular/material' as mat;
 @use './tp-community-buttons.scss' as buttons;
+@use './tp-community-forms.scss' as forms;
 @use './tp-community-palette.scss' as palette;
 
 @include mat.core();
@@ -37,6 +38,7 @@ $tpcommunity-typography: mat.define-typography-config(
 // that you are using.
 @include mat.all-component-themes($tpcommunity-theme);
 @include buttons.theme($tpcommunity-theme);
+@include forms.theme($tpcommunity-theme);
 
 
 

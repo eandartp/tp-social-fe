@@ -1,0 +1,44 @@
+
+<h2 mat-dialog-title>Aggiungi utente</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="margin-t-2" >
+        <form class="fxgrid-adjust-margin" [formGroup]="employeeFormGroup" fxLayout="row wrap"  fxLayoutAlign="start start">
+            <mat-form-field fxFlex="calc(50% - 12px)" appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input type="text" formControlName="firstName" matInput>
+            </mat-form-field>
+            <mat-form-field  fxFlex="calc(50% - 12px)" appearance="fill">
+                <mat-label>Cognome</mat-label>
+                <input type="text" formControlName="lastName" matInput>
+            </mat-form-field>
+            <mat-form-field  fxFlex="calc(50% - 12px)" appearance="fill">
+                <mat-label>Indirizzo</mat-label>
+                <input type="text" formControlName="address" matInput>
+            </mat-form-field>
+            <mat-form-field  fxFlex="calc(50% - 12px)" appearance="fill">
+                <mat-label>Codice Fiscale</mat-label>
+                <input type="text" formControlName="taxCode" matInput>
+            </mat-form-field>
+            <mat-form-field  fxFlex="calc(50% - 12px)" appearance="fill">
+                <mat-label>CAP</mat-label>
+                <input type="text" formControlName="zip" matInput>
+            </mat-form-field>
+            <mat-form-field  fxFlex="calc(50% - 12px)" appearance="fill">
+                <mat-label>Città</mat-label>
+                <input type="text" formControlName="city" matInput>
+            </mat-form-field>
+        </form>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <div class="fxgrid-adjust-margin">
+        <button fxFlex.gt-sm="50" mat-raised-button
+            (click)="closeDialog()">
+            <span>Annulla</span>
+        </button>
+        <button fxFlex.gt-sm="50" mat-raised-button color="primary"
+            (click)="addEmployee()">
+            <span>Conferma</span>
+        </button>
+    </div>
+</mat-dialog-actions>

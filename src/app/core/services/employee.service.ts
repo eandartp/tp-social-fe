@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { Employee } from 'src/app/models/employee';
 
-const url = 'employees';
+const url = 'api/employees/';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +22,14 @@ export class EmployeeService {
 
   getByAttr(category: string) {
     return this.http.get(`${url}/${category}`)
+  }
+
+  postEmployee(employee: Employee):Observable<Employee> {
+    return this.http.post<Employee>(`${url}`, employee);
+  }
+
+   patchEmployee(employee: Employee):Observable<Employee> {
+    return this.http.patch<Employee>(`${url}`, employee);
   }
   
 }

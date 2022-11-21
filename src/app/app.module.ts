@@ -40,15 +40,18 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {FaqComponent} from './core/components/faq/faq.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {MatBadgeModule} from "@angular/material/badge";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {CompetenceAreaComponent} from './core/components/competence-area/competence-area.component';
 import {PdfViewerModule} from "ng2-pdf-viewer";
 import {EventEmiterService} from './core/services/utility/event.emmiter.service';
 import {ChatModalComponent} from './core/components/chat/chat-modal/chat-modal.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {SideJobSystemComponent} from './core/components/side-components/side-job-system/side-job-system.component';
-import {JobSystemComponent} from './core/components/job-system/job-system.component';
+import {EmployeeComponent} from './core/components/employee/employee.component';
 import {HttpClientModule} from "@angular/common/http";
 import { CardMenuComponent } from './core/components/card-menu/card-menu.component';
+import { AddEmployeeModalComponent } from './core/components/employee/modals/add-employee-modal/add-employee-modal.component';
+import { JobSystemComponent } from './core/components/job-system/job-system.component';
 
 
 @NgModule({
@@ -69,8 +72,10 @@ import { CardMenuComponent } from './core/components/card-menu/card-menu.compone
     CompetenceAreaComponent,
     ChatModalComponent,
     SideJobSystemComponent,
+    EmployeeComponent,
     JobSystemComponent,
-    CardMenuComponent
+    CardMenuComponent,
+    AddEmployeeModalComponent
   ],
   imports: [
     BrowserModule,
@@ -98,6 +103,7 @@ import { CardMenuComponent } from './core/components/card-menu/card-menu.compone
     MatMenuModule,
     MatDialogModule,
     MatBadgeModule,
+    MatSnackBarModule,
     HttpClientModule,
     PdfViewerModule,
   ],
