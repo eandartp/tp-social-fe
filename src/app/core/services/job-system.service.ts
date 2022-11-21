@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
-const url = 'job-system';
+const url = 'api/job-system';
 
 
 @Injectable({

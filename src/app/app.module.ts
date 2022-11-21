@@ -52,6 +52,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { CardMenuComponent } from './core/components/card-menu/card-menu.component';
 import { AddEmployeeModalComponent } from './core/components/employee/modals/add-employee-modal/add-employee-modal.component';
 import { JobSystemComponent } from './core/components/job-system/job-system.component';
+import { DeleteModalComponent } from './core/components/modals/delete-modal/delete-modal.component';
+import { EditEmployeeModalComponent } from './core/components/employee/modals/edit-employee-modal/edit-employee-modal.component';
 
 
 @NgModule({
@@ -75,7 +77,9 @@ import { JobSystemComponent } from './core/components/job-system/job-system.comp
     EmployeeComponent,
     JobSystemComponent,
     CardMenuComponent,
-    AddEmployeeModalComponent
+    AddEmployeeModalComponent,
+    DeleteModalComponent,
+    EditEmployeeModalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,4 @@
-
-<h2 mat-dialog-title>Aggiungi dipendente</h2>
+<h2 mat-dialog-title>Modifica dipendente</h2>
 <mat-dialog-content class="mat-typography">
     <div class="margin-t-2" >
         <form class="fxgrid-adjust-margin" [formGroup]="employeeFormGroup" fxLayout="row wrap"  fxLayoutAlign="start start">
@@ -37,7 +36,7 @@
             <span>Annulla</span>
         </button>
         <button fxFlex.gt-sm="50" mat-raised-button color="primary"
-            (click)="addEmployee()">
+            (click)="editEmployee()">
             <span>Conferma</span>
         </button>
     </div>

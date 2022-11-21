@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
-const url = 'news'
+const url = 'api/news/'
 
 
 @Injectable({

@@ -1,0 +1,21 @@
+
+<h2 mat-dialog-title>Elimina</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="margin-t-2">
+        <p *ngIf="data && data.msg">
+            {{data.msg}}
+        </p>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <div class="fxgrid-adjust-margin">
+        <button fxFlex.gt-sm="50" mat-raised-button
+            (click)="closeDialog(false)">
+            <span>Annulla</span>
+        </button>
+        <button fxFlex.gt-sm="50" mat-raised-button color="primary"
+            (click)="delete()">
+            <span>Conferma</span>
+        </button>
+    </div>
+</mat-dialog-actions>

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
-const url = 'chatMessages';
+const url = 'api/chatMessages/';
 
 @Injectable({
   providedIn: 'root'

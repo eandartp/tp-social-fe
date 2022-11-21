@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
-const url = 'courses';
+const url = 'api/courses/';
 
 @Injectable({
   providedIn: 'root'

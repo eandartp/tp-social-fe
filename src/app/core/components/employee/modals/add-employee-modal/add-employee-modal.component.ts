@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EmployeeService } from 'src/app/core/services/employee.service';
+import { Employee } from 'src/app/models/employee';
 
 @Component({
   selector: 'app-add-employee-modal',
@@ -29,13 +30,13 @@ export class AddEmployeeModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  closeDialog() {
-    this.dialogRef.close();
+  closeDialog(employee?: Employee) {
+    this.dialogRef.close(employee);
   }
 
   addEmployee() {
     this.employeeService.postEmployee(this.employeeFormGroup.getRawValue()).subscribe(res => {
-      this.closeDialog();
+      this.closeDialog(res);
     }, err => {
       this._snackBar.open('Creazione dipendente non riuscita', 'Ok');
     });

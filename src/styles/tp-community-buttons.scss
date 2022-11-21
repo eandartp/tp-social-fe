@@ -14,6 +14,18 @@
       background: mat.get-color-from-palette($primary-palette, A500);
       color: #FFF;
     }
+    &.icon-btn {
+      margin-right: 8px;
+      line-height: 18px;
+      padding: 6px 10px;
+      border-radius: 8px;
+
+      mat-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+      }
+    }
   }
 
   .mat-tp-primary {
@@ -34,12 +46,27 @@
         box-shadow: none;
       }
     }
+    &.icon-btn {
+      margin-right: 8px;
+      line-height: 18px;
+      padding: 6px 10px;
+      border-radius: 8px;
+
+      mat-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+      }
+    }
   }
 
 
   .mat-button-base {
     &.mat-raised-button {
       min-width: 88px;
+    }
+    &.icon-btn {
+      min-width: 24px;
     }
   }
 
@@ -52,6 +79,8 @@
       float: right;
     }
   }
+
+  
 
   ::ng-deep .mat-form-field.mat-tp-primary {
     .mat-input-element {
