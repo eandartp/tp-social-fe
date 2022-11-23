@@ -25,7 +25,7 @@ export class EmployeeService {
   }
 
   postEmployee(employee: Employee):Observable<Employee> {
-    return this.http.post<Employee>(`${url}`+ employee, employee);
+    return this.http.post<Employee>(`${url}`, employee);
   }
 
    patchEmployee(employee: Employee):Observable<Employee> {
