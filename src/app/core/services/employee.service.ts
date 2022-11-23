@@ -28,7 +28,7 @@ export class EmployeeService {
     return this.http.post<Employee>(`${url}`, employee);
   }
 
-   patchEmployee(employee: Employee):Observable<Employee> {
+  patchEmployee(employee: Employee):Observable<Employee> {
     return this.http.patch<Employee>(`${url}` + employee.id, employee);
   }
   
